@@ -14,8 +14,8 @@ outputs = session.run(None, {input_name: images})
 preds = np.argmax(outputs[0], axis=1)
 
 # 顯示結果
-print("預測結果：", preds)
-print("正確標籤：", labels)
+print("Preicted：", preds)
+print("Correct：", labels)
 
 accuracy = np.mean(preds == labels) * 100
-print(f"準確率：{accuracy:.2f}%")
+print(f"Accuracy：{accuracy:.2f}%")

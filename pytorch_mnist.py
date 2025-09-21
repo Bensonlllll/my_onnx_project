@@ -26,12 +26,12 @@ class SimpleCNN(nn.Module):
     def __init__(self):
         super(SimpleCNN, self).__init__()
         self.net = nn.Sequential(
-            nn.Conv2d(1, 32, kernel_size=3),  # 28x28 → 28x28
+            nn.Conv2d(1, 32, kernel_size=3),
             nn.ReLU(),
-            nn.MaxPool2d(2),                  # 28x28 → 14x14
-            nn.Conv2d(32, 64, kernel_size=3), # 14x14 → 14x14
+            nn.MaxPool2d(2),
+            nn.Conv2d(32, 64, kernel_size=3),
             nn.ReLU(),
-            nn.MaxPool2d(2),                  # 14x14 → 7x7
+            nn.MaxPool2d(2),
             nn.Flatten(),
             nn.Linear(64 * 5 * 5, 128),
             nn.ReLU(),
@@ -46,7 +46,7 @@ criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=learning_rate)
 
 # 訓練模型
-print("開始訓練...")
+print("Start training...")
 for epoch in range(num_epochs):
     model.train()
     total_loss = 0
@@ -81,8 +81,9 @@ with torch.no_grad():
         correct += (predicted == labels).sum().item()
 
 accuracy = correct / total * 100
-print(f"測試準確率：{accuracy:.2f}%")
+print(f"Test accuracy：{accuracy:.2f}%")
 
 # 儲存模型參數
-torch.save(model.state_dict(), "model/mnist_pt_model.pth")
-print("模型已儲存為 mnist_pt_model.pth")
+model_path = "model/mnist_pt_model.pth"
+torch.save(model.state_dict(), model_path)
+print(f"✅ PyTorch model save to：{model_path}")

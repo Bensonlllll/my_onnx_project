@@ -13,7 +13,7 @@ x_test = x_test.astype("float32") / 255.0
 x_train = x_train[:, tf.newaxis, :, :]  # (60000, 1, 28, 28)
 x_test = x_test[:, tf.newaxis, :, :]
 
-# 建立 CNN 模型 (注意 input_shape 是 (C, H, W))
+# 建立 CNN 模型
 model = models.Sequential([
     layers.Conv2D(32, kernel_size=3, activation='relu', input_shape=(1, 28, 28)),
     layers.MaxPooling2D(pool_size=2),
@@ -34,9 +34,9 @@ model.fit(x_train, y_train, epochs=5, batch_size=64)
 
 # 評估
 test_loss, test_acc = model.evaluate(x_test, y_test, verbose=0)
-print(f"測試準確率：{test_acc * 100:.2f}%")
+print(f"Test accuracy：{test_acc * 100:.2f}%")
 
 # 儲存模型
 model_path = "model/mnist_tf_model.h5"
 model.save(model_path)
-print(f"模型已儲存為：{model_path}")
+print(f"✅ TensorFlow model save to：{model_path}")

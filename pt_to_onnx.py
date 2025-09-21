@@ -44,4 +44,4 @@ torch.onnx.export(
     },
     opset_version=13          # ONNX opset 版本，可調整
 )
-print(f"✅ pytorch to onnx model output to: {onnx_output_path}")
+print(f"✅ PyTorch to ONNX model save to: {onnx_output_path}")
