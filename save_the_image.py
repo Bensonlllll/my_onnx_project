@@ -11,8 +11,8 @@ transform = transforms.Compose([
 test_dataset = datasets.MNIST(root="./data", train=False, download=True, transform=transform)
 
 # 提取前100筆
-images = [test_dataset[i][0].numpy() for i in range(100)]
-labels = [test_dataset[i][1] for i in range(100)]
+images = [test_dataset[i][0].numpy() for i in range(1000)]
+labels = [test_dataset[i][1] for i in range(1000)]
 
 # 儲存為 npy 檔
 np.save("images.npy", np.stack(images, axis=0).astype(np.float32))  # (100, 1, 28, 28)

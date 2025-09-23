@@ -21,7 +21,6 @@ test_dataset = torchvision.datasets.MNIST(root='./pt_data', train=False, transfo
 train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
 test_loader = torch.utils.data.DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
 
-# 定義 CNN 模型
 class SimpleCNN(nn.Module):
     def __init__(self):
         super(SimpleCNN, self).__init__()
@@ -35,7 +34,8 @@ class SimpleCNN(nn.Module):
             nn.Flatten(),
             nn.Linear(64 * 5 * 5, 128),
             nn.ReLU(),
-            nn.Linear(128, 10)
+            nn.Linear(128, 10),
+            nn.Softmax(dim=1)
         )
 
     def forward(self, x):
