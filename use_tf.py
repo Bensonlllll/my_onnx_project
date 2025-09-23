@@ -35,6 +35,7 @@ for i in range(len(images)):
 # 準確率
 total = len(labels)
 accuracy = correct / total * 100
-print(f"Total: {total} images。")
-print(f"Correct: {correct} images。")
+print("TensorFlow: ")
+print(f"Total: {total} images")
+print(f"Correct: {correct} images")
 print(f"Accuracy: {accuracy:.2f}%")

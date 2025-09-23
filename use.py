@@ -16,7 +16,7 @@ try:
     session = ort.InferenceSession(model_path)
 except Exception:
     sys.exit(1)
-    
+
 input_name = session.get_inputs()[0].name
 
 # 載入預處理好的圖片與標籤
@@ -33,6 +33,7 @@ total_count = len(labels)
 accuracy = correct_count / total_count * 100
 
 # 顯示結果
+print(f"{args.model_type} to ONNX: ")
 print(f"Total: {total_count} images")
 print(f"Correct: {correct_count} images")
 print(f"Accuracy：{accuracy:.2f}%")

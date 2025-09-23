@@ -56,6 +56,7 @@ with torch.no_grad():
 # 計算總準確率
 correct = (predicted == labels_tensor).sum().item()
 accuracy = correct / total * 100
-print(f"Total: {total} images。")
-print(f"Correct: {correct} images。")
+print("PyTorch: ")
+print(f"Total: {total} images")
+print(f"Correct: {correct} images")
 print(f"Accuracy: {accuracy:.2f}%")
