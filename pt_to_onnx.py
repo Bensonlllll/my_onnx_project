@@ -15,7 +15,8 @@ class SimpleCNN(nn.Module):
             nn.Flatten(),
             nn.Linear(64 * 5 * 5, 128),
             nn.ReLU(),
-            nn.Linear(128, 10)
+            nn.Linear(128, 10),
+            nn.Softmax(dim=1)
         )
 
     def forward(self, x):
@@ -28,10 +29,10 @@ model = SimpleCNN()
 model.load_state_dict(torch.load(pytorch_model_path))
 model.eval()
 
-    # 建立一個假的輸入（batch size=1, channel=1, 28x28）
+# 建立一個假的輸入（batch size=1, channel=1, 28x28）
 dummy_input = torch.randn(1, 1, 28, 28)
 
-    # 匯出 ONNX 模型
+# 匯出 ONNX 模型
 torch.onnx.export(
     model,                   # 要轉換的模型
     dummy_input,             # 模型輸入範例
