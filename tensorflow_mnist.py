@@ -4,6 +4,10 @@ from tensorflow.keras import layers, models
 # 設定使用 channel 優先 (NCHW) 格式
 tf.keras.backend.set_image_data_format('channels_first')
 
+# 設定參數
+batch_size = 64
+num_epochs = 5
+
 # 載入 MNIST 數據
 (x_train, y_train), (x_test, y_test) = tf.keras.datasets.mnist.load_data()
 
@@ -30,7 +34,7 @@ model.compile(optimizer='adam',
               metrics=['accuracy'])
 
 # 訓練
-model.fit(x_train, y_train, epochs=5, batch_size=64)
+model.fit(x_train, y_train, epochs=num_epochs, batch_size=batch_size)
 
 # 評估
 test_loss, test_acc = model.evaluate(x_test, y_test, verbose=0)

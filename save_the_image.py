@@ -10,7 +10,7 @@ transform = transforms.Compose([
 # 載入 MNIST 測試資料
 test_dataset = datasets.MNIST(root="./data", train=False, download=True, transform=transform)
 
-# 提取前100筆
+# 提取所有測試資料
 images = [test_dataset[i][0].numpy() for i in range(10000)]
 labels = [test_dataset[i][1] for i in range(10000)]
 
