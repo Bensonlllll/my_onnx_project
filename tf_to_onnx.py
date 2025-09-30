@@ -14,4 +14,4 @@ model_proto, _ = tf2onnx.convert.from_keras(model, input_signature=spec, opset=1
 with open(onnx_output_path, "wb") as f:
     f.write(model_proto.SerializeToString())
 
-print(f"✅ TensorFlow to ONNX model save to: {onnx_output_path}")
+print(f"TensorFlow to ONNX model save to: {onnx_output_path}")

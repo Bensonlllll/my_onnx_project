@@ -43,4 +43,4 @@ print(f"Test accuracy：{test_acc * 100:.2f}%")
 # 儲存模型
 model_path = "model/mnist_tf_model.h5"
 model.save(model_path)
-print(f"✅ TensorFlow model save to：{model_path}")
+print(f"TensorFlow model save to：{model_path}")

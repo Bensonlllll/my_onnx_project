@@ -17,4 +17,4 @@ labels = [test_dataset[i][1] for i in range(10000)]
 # 儲存為 npy 檔
 np.save("images.npy", np.stack(images, axis=0).astype(np.float32))  # (100, 1, 28, 28)
 np.save("labels.npy", np.array(labels))                             # (100,)
-print("已儲存 images.npy 和 labels.npy")
+print("images and labels data save to: images.npy and labels.npy")

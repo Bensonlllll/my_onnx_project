@@ -43,6 +43,6 @@ torch.onnx.export(
         'input': {0: 'batch_size'},  # 讓 batch size 可以變動
         'output': {0: 'batch_size'}
     },
-    opset_version=13          # ONNX opset 版本
+    opset_version=13         # ONNX opset 版本
 )
-print(f"✅ PyTorch to ONNX model save to: {onnx_output_path}")
+print(f"PyTorch to ONNX model save to: {onnx_output_path}")

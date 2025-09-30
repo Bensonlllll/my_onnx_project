@@ -86,4 +86,4 @@ print(f"Test accuracy：{accuracy:.2f}%")
 # 儲存模型參數
 model_path = "model/mnist_pt_model.pth"
 torch.save(model.state_dict(), model_path)
-print(f"✅ PyTorch model save to：{model_path}")
+print(f"PyTorch model save to：{model_path}")
