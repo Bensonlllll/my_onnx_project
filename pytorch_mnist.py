@@ -12,12 +12,14 @@ batch_size = 64
 learning_rate = 0.001
 num_epochs = 5
 
+# 圖像轉為 Tensor、正規化及將 (H, W, C) 轉為 (C, H, W)
 transform = transforms.ToTensor()
 
 # 下載資料集
 train_dataset = torchvision.datasets.MNIST(root='./pt_data', train=True, transform=transform, download=True)
 test_dataset = torchvision.datasets.MNIST(root='./pt_data', train=False, transform=transform, download=True)
 
+# 集分成設定的 batch_size、隨機打亂及在訓練迴圈中以批次方式提供圖像和 label
 train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
 test_loader = torch.utils.data.DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
 

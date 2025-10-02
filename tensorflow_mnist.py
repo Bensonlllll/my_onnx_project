@@ -14,7 +14,7 @@ num_epochs = 5
 # 預處理：標準化與升維 (N, C, H, W)
 x_train = x_train.astype("float32") / 255.0
 x_test = x_test.astype("float32") / 255.0
-x_train = x_train[:, tf.newaxis, :, :]  # (60000, 1, 28, 28) 多一維 Channel
+x_train = x_train[:, tf.newaxis, :, :]  # (60000, 28, 28) -> (60000, 1, 28, 28) 多一維 Channel
 x_test = x_test[:, tf.newaxis, :, :]
 
 # 建立 CNN 模型
@@ -33,7 +33,7 @@ model.compile(optimizer='adam',
               loss='sparse_categorical_crossentropy',
               metrics=['accuracy'])
 
-# 訓練
+# 開始訓練
 model.fit(x_train, y_train, epochs=num_epochs, batch_size=batch_size)
 
 # 評估
